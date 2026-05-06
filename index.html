@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hygiene Matters — Premium Travel Kits</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preload" href="assets/frames/ezgif-frame-001.png" as="image">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script defer src="main.js"></script>
+</head>
+<body>
+
+<div class="grain"></div>
+<canvas id="bg-canvas"></canvas>
+
+<!-- Scroll progress bar -->
+<div id="scroll-progress"></div>
+
+<!-- Floating kit indicator -->
+<div id="kit-indicator">
+    <div class="ki-dots">
+        <div class="ki-dot active" data-kit="0"></div>
+        <div class="ki-dot" data-kit="1"></div>
+        <div class="ki-dot" data-kit="2"></div>
+        <div class="ki-dot" data-kit="3"></div>
+    </div>
+    <span id="ki-label">Standard — ₹99</span>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+    <div class="nav-logo">HM</div>
+    <div class="nav-wordmark">Hygiene Matters</div>
+    <div class="nav-right">
+        <a href="#kits">Kits</a>
+        <a href="#compare">Compare</a>
+        <a href="#corporate">Corporate</a>
+        <a href="https://wa.me/919863291184" target="_blank" class="nav-wa">Order →</a>
+    </div>
+</nav>
+
+<!-- ══════════════════════════════════════════ HERO -->
+<div id="hero-loader">
+    <div class="hl-track"><div class="hl-bar"></div></div>
+    <span class="hl-text">Loading experience</span>
+</div>
+
+<section id="hero">
+    <div class="hero-sticky">
+        <canvas id="hero-canvas"></canvas>
+        <div class="hero-overlay"></div>
+        <div class="hero-content-wrap">
+            <div class="hero-eyebrow">
+                <span>Premium Travel Hygiene</span>
+                <span class="dot">·</span>
+                <span>India · Est. 2026</span>
+            </div>
+            <h1 class="hero-h1">
+                <div class="h1-line"><span>Clean.</span></div>
+                <div class="h1-line"><span class="italic-gold">Confident.</span></div>
+                <div class="h1-line"><span>Everywhere.</span></div>
+            </h1>
+            <p class="hero-sub">Not just a kit. Confidence in your pocket.</p>
+            <a href="#manifesto" class="hero-down">
+                <span>Explore</span>
+                <div class="down-line"></div>
+            </a>
+        </div>
+        <div class="hero-scroll-hint">Scroll to explore</div>
+        <div class="hero-badge">
+            <div class="badge-ring"></div>
+            <span>4 Kits · Starting ₹99</span>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════ MANIFESTO -->
+<section id="manifesto">
+    <div class="bg-items-wrap" id="mani-bg"></div>
+    <div class="mani-inner">
+        <p class="mani-label">— The Standard We Hold</p>
+        <h2 class="mani-text">
+            <span class="mani-line">Hygiene Matters</span>
+            <span class="mani-line">isn't just a brand.</span>
+            <span class="mani-line italic-gold">It's the belief that</span>
+            <span class="mani-line">everyone deserves to</span>
+            <span class="mani-line">travel <em>clean.</em></span>
+        </h2>
+        <div class="mani-foot">
+            <span>Every item verified.</span>
+            <span>Every kit precision-curated.</span>
+            <span>Starting at ₹99.</span>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════ KIT INTRO BANNER -->
+<div id="kits" class="kits-banner">
+    <div class="kits-banner-inner">
+        <span>01 — Standard</span>
+        <span class="sep">✦</span>
+        <span>02 — Premium</span>
+        <span class="sep">✦</span>
+        <span>03 — Women's</span>
+        <span class="sep">✦</span>
+        <span>04 — Kids</span>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════ KIT 01: STANDARD -->
+<div class="kit-wrapper" id="wrap-standard">
+    <div class="kit-sticky">
+        <div class="kit-zoom-card" id="card-standard">
+            <video class="kit-bg-video" muted loop playsinline preload="none">
+                <source src="assets/standard-video.mp4" type="video/mp4">
+            </video>
+            <div class="kit-card-left">
+                <div class="kit-ghost-num">01</div>
+                <div class="kit-card-content">
+                    <p class="kit-index">Kit 01 of 04</p>
+                    <h2 class="kit-name">Standard<br>Travel Kit</h2>
+                    <div class="kit-price-display">
+                        <span class="price-currency">₹</span>
+                        <span class="price-num">99</span>
+                    </div>
+                    <div class="kit-imgs">
+                        <img src="assets/standard-start.jpg" alt="Standard Kit" class="kit-img" loading="lazy">
+                        <img src="assets/standard-end.jpg" alt="Standard Kit Contents" class="kit-img" loading="lazy">
+                    </div>
+                    <p class="kit-tagline">"Seven essentials. One clean journey."</p>
+                    <p class="kit-para">The foundation of travel hygiene. Compact, complete and precision-curated for flights, trains and road trips. Everything you need — nothing you don't.</p>
+                    <div class="kit-spec-summary">
+                        <div class="ks"><span>Items</span><strong>7</strong></div>
+                        <div class="ks"><span>Pack Size</span><strong>12×8×3 cm</strong></div>
+                        <div class="ks"><span>Weight</span><strong>~180g</strong></div>
+                        <div class="ks"><span>Sourcing</span><strong>Verified</strong></div>
+                    </div>
+                    <a href="https://wa.me/919863291184?text=Hi!%20I%20want%20to%20order%20the%20Standard%20Travel%20Kit%20at%20%E2%82%B999" target="_blank" class="kit-wa-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        Order on WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="kit-card-right">
+                <div class="kit-showcase">
+                    <img src="assets/standard-end.jpg" alt="Standard Kit Contents" loading="lazy">
+                    <div class="kit-showcase-overlay"></div>
+                </div>
+                <div class="items-scroll-area">
+
+                    <div class="detail-item">
+                        <div class="di-header">
+                            <span class="di-n">01</span>
+                            <span class="di-name">TISSUE</span>
+                            <span class="di-tag">10 Sheets</span>
+                        </div>
+                        <div class="di-specs">
+                            <div class="spec-row"><span>Material</span><span>Biodegradable virgin wood pulp</span></div>
+                            <div class="spec-row"><span>Weight</span><span>25 GSM per sheet</span></div>
+                            <div class="spec-row"><span>Layers</span><span>2-ply construction</span></div>
+                            <div class="spec-row"><span>Absorbency</span><span>Grade A — 4.2× weight capacity</span></div>
+                            <div class="spec-row"><span>Count</span><span>10 sheets per sealed pack</span></div>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="di-header">
+                            <span class="di-n">02</span>
+                            <span class="di-name">SHOE COVER</span>
+                            <span class="di-tag">Waterproof</span>
+                        </div>
+                        <div class="di-specs">
+                            <div class="spec-row"><span>Material</span><span>PEVA waterproof film</span></div>
+                            <div class="spec-row"><span>Size</span><span>Universal — up to EU 46</span></div>
+                            <div class="spec-row"><span>Resistance</span><span>Water, dust & mud proof</span></div>
+                            <div class="spec-row"><span>Closure</span><span>Elastic slip-on band</span></div>
+                            <div class="spec-row"><span>Type</span><span>Disposable single-use</span></div>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="di-header">
+                            <span class="di-n">03</span>
+                            <span class="di-name">HAND SANITIZER</span>
+                            <span class="di-tag">15ml</span>
+                        </div>
+                        <div class="di-specs">
+                            <div class="spec-row"><span>Active</span><span>70% Isopropyl Alcohol (IPA)</span></div>
+                            <div class="spec-row"><span>Volume</span><span>15ml — ~120 applications</span></div>
+                            <div class="spec-row"><span>Kill Rate</span><span>99.9% bacteria & viruses</span></div>
+                            <div class="spec-row"><span>Formula</span><span>Aloe vera enriched, non-sticky</span></div>
+                            <div class="spec-row"><span>Dry Time</span><span>&lt; 20 seconds</span></div>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="di-header">
+                            <span class="di-n">04</span>
+                            <span class="di-name">TOILET SPRAY</span>
+                            <span class="di-tag">15ml</span>
+                        </div>
+                        <div class="di-specs">
+                            <div class="spec-row"><span>Active</span><span>Benzalkonium Chloride 0.1%</span></div>
+                            <div class="spec-row"><span>Volume</span><span>15ml — ~80 sprays</span></div>
+                            <div class="spec-row"><span>pH Level</span><span>7.2 — skin neutral</span></div>
+                            <div class="spec-row"><span>Coverage</span><span>360° micro-mist nozzle</span></div>
+                            <div class="spec-row"><span>Scent</span><span>Fresh citrus, dissipates in 10s</span></div>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="di-header">
+                            <span class="di-n">05</span>
+                            <span class="di-name">DISPOSAL SEAT COVER</span>
+                            <span class="di-tag">Biodegradable</span>
+                        </div>
+                        <div class="di-specs">
+                            <div class="spec-row"><span>Material</span><span>100% biodegradable paper</span></div>
+                            <div class="spec-row"><span>Dimensions</span><span>43 × 36 cm — universal fit</span></div>
+                            <div class="spec-row"><span>Degradation</span><span>Fully flushable within 30s</span></div>
+                            <div class="spec-row"><span>Barrier</span><span>4-layer germ protection</span></div>
+                            <div class="spec-row"><span>Certification</span><span>ISO 9001 compliant</span></div>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="di-header">
+                            <span class="di-n">06</span>
+                            <span class="di-name">PAPER SOAP</span>
+                            <span class="di-tag">10 Sheets</span>
+                        </div>
+                        <div class="di-specs">
+                            <div class="spec-row"><span>Formula</span><span>Moisturising glycerin base</span></div>
+                            <div class="spec-row"><span>Count</span><span>10 dissolvable sheets</span></div>
+                            <div class="spec-row"><span>Activation</span><span>Instant lather — 2s contact</span></div>
+                            <div class="spec-row"><span>pH</span><span>5.5 — skin-safe balance</span></div>
+                            <div class="spec-row"><span>Fragrance</span><span>Light lavender, hypoallergenic</span></div>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="di-header">
+                            <span class="di-n">07</span>
+                            <span class="di-name">PACKAGING</span>
+                            <span class="di-tag">Travel Pouch</span>
+                        </div>
+                        <div class="di-specs">
+                            <div class="spec-row"><span>Type</span><span>Compact sealed travel pouch</span></div>
+                            <div class="spec-row"><span>Material</span><span>Eco-friendly kraft paper</span></div>
+                            <div class="spec-row"><span>Dimensions</span><span>12 × 8 × 3 cm</span></div>
+                            <div class="spec-row"><span>Weight</span><span>~180g total packed</span></div>
+                            <div class="spec-row"><span>Seal</span><span>Airtight tamper-evident closure</span></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+    <div class="marquee-track">
+        <span>Standard Travel Kit</span><span class="ms">✦</span><span>₹99</span><span class="ms">✦</span><span>7 Essentials</span><span class="ms">✦</span><span>Compact Pouch</span><span class="ms">✦</span><span>Verified Sourcing</span><span class="ms">✦</span>
+        <span>Standard Travel Kit</span><span class="ms">✦</span><span>₹99</span><span class="ms">✦</span><span>7 Essentials</span><span class="ms">✦</span><span>Compact Pouch</span><span class="ms">✦</span><span>Verified Sourcing</span><span class="ms">✦</span>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════ KIT 02: PREMIUM -->
+<div class="kit-wrapper" id="wrap-premium">
+    <div class="kit-sticky">
+        <div class="kit-zoom-card kit-premium-card" id="card-premium">
+            <video class="kit-bg-video" muted loop playsinline preload="none">
+                <source src="assets/premium-video.mp4" type="video/mp4">
+            </video>
+            <div class="kit-card-left">
+                <div class="kit-ghost-num">02</div>
+                <div class="kit-card-content">
+                    <p class="kit-index" style="color:var(--gold)">Kit 02 of 04</p>
+                    <h2 class="kit-name">Premium<br>Travel Kit</h2>
+                    <div class="kit-price-display">
+                        <span class="price-currency" style="color:var(--gold)">₹</span>
+                        <span class="price-num" style="color:var(--gold)">199</span>
+                    </div>
+                    <div class="kit-imgs">
+                        <img src="assets/premium-start.jpg" alt="Premium Kit" class="kit-img" loading="lazy">
+                        <img src="assets/premium-end.jpg" alt="Premium Kit Contents" class="kit-img" loading="lazy">
+                    </div>
+                    <p class="kit-tagline">"When standard isn't enough."</p>
+                    <p class="kit-para">Eight premium-grade items with larger volumes, superior formulations and luxury matte packaging. For the traveller who refuses to compromise.</p>
+                    <div class="kit-spec-summary">
+                        <div class="ks"><span>Items</span><strong>8</strong></div>
+                        <div class="ks"><span>Pack Size</span><strong>15×10×4 cm</strong></div>
+                        <div class="ks"><span>Weight</span><strong>~260g</strong></div>
+                        <div class="ks"><span>Packaging</span><strong>Premium Matte</strong></div>
+                    </div>
+                    <a href="https://wa.me/919863291184?text=Hi!%20I%20want%20to%20order%20the%20Premium%20Travel%20Kit%20at%20%E2%82%B9199" target="_blank" class="kit-wa-btn" style="background:var(--gold);color:#07070d;border-color:var(--gold)">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        Order on WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="kit-card-right">
+                <div class="kit-showcase">
+                    <img src="assets/premium-end.jpg" alt="Premium Kit Contents" loading="lazy">
+                    <div class="kit-showcase-overlay"></div>
+                </div>
+                <div class="items-scroll-area">
+
+                    <div class="detail-item">
+                        <div class="di-header">
+                            <span class="di-n">01</span>
+                            <span class="di-name">LARGER SANITIZER</span>
+                            <span class="di-tag">30ml</span>
+                        </div>
+                        <div class="di-specs">
+                            <div class="spec-row"><span>Active</span><span>70% Isopropyl Alcohol (IPA)</span></div>
+                            <div class="spec-row"><span>Volume</span><span>30ml — ~240 applications</span></div>
+                            <div class="spec-row"><span>Kill Rate</span><span>99.99% — hospital-grade efficacy</span></div>
+                            <div class="spec-row"><span>Formula</span><span>Vitamin E + Aloe vera complex</span></div>
+                            <div class="spec-row"><span>Texture</span><span>Non-sticky, rapid absorb gel</span></div>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="di-header">
+                            <span class="di-n">02</span>
+                            <span class="di-name">TOILET SPRAY</span>
+                            <span class="di-tag">20ml</span>
+                        </div>
+                        <div class="di-specs">
+                            <div class="spec-row"><span>Active</span><span>Benzalkonium Chloride 0.15%</span></div>
+                            <div class="spec-row"><span>Volume</span><span>20ml — ~110 sprays</span></div>
+                            <div class="spec-row"><span>Coverage</span><span>Wide-arc 360° micro-mist</span></div>
+                            <div class="spec-row"><span>pH</span><span>7.0 — perfectly neutral</span></div>
+                            <div class="spec-row"><span>Scent</span><span>Premium eucalyptus & mint</span></div>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="di-header">
+                            <span class="di-n">03</span>
+                            <span class="di-name">WET WIPES</span>
+                            <span class="di-tag">Antibacterial</span>
+                        </div>
+                        <div class="di-specs">
+                            <div class="spec-row"><span>Material</span><span>Spunlace non-woven fibre</span></div>
+                            <div class="spec-row"><span>Moisture</span><span>99% purified water base</span></div>
+                            <div class="spec-row"><span>Active</span><span>0.05% Benzalkonium Chloride</span></div>
+                            <div class="spec-row"><span>pH</span><span>5.5 — skin-safe, dermatologist tested</span></div>
+                            <div class="spec-row"><span>Fragrance</span><span>Alcohol-free, unscented option</span></div>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="di-header">
+                            <span class="di-n">04</span>
+                            <span class="di-name">GLOVES</span>
+                            <span class="di-tag">Disposable</span>
+                        </div>
+                        <div class="di-specs">
+                            <div class="spec-row"><span>Material</span><span>Medical-grade polyethylene</span></div>
+                            <div class="spec-row"><span>Type</span><span>Latex-free — allergy safe</span></div>
+                            <div class="spec-row"><span>Thickness</span><span>0.012mm — tactile sensitivity</span></div>
+                            <div class="spec-row"><span>Size</span><span>Universal ambidextrous</span></div>
+                            <div class="spec-row"><span>Standard</span><span>EN 455 medical device compliant</span></div>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="di-header">
+                            <span class="di-n">05</span>
+                            <span class="di-name">DISPOSAL SEAT COVER</span>
+                            <span class="di-tag">Premium Grade</span>
+                        </div>
+                        <div class="di-specs">
+                            <div class="spec-row"><span>Material</span><span>Premium 3-layer biodegradable paper</span></div>
+                            <div class="spec-row"><span>Dimensions</span><span>46 × 38 cm — oversized coverage</span></div>
+                            <div class="spec-row"><span>Degradation</span><span>Fully flushable, dissolves in 25s</span></div>
+                            <div class="spec-row"><span>Barrier</span><span>6-layer microbe protection</span></div>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="di-header">
+                            <span class="di-n">06</span>
+                            <span class="di-name">TISSUE</span>
+                            <span class="di-tag">3-Ply Premium</span>
+                        </div>
+                        <div class="di-specs">
+                            <div class="spec-row"><span>Material</span><span>Premium virgin wood pulp</span></div>
+                            <div class="spec-row"><span>Weight</span><span>30 GSM per sheet — extra soft</span></div>
+                            <div class="spec-row"><span>Layers</span><span>3-ply — ultra absorbent</span></div>
+                            <div class="spec-row"><span>Absorbency</span><span>Grade S — 6× weight capacity</span></div>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="di-header">
+                            <span class="di-n">07</span>
+                            <span class="di-name">PAPER SOAP</span>
+                            <span class="di-tag">Moisturising</span>
+                        </div>
+                        <div class="di-specs">
+                            <div class="spec-row"><span>Formula</span><span>Shea butter + glycerin complex</span></div>
+                            <div class="spec-row"><span>Count</span><span>10 sheets — premium weight</span></div>
+                            <div class="spec-row"><span>pH</span><span>5.5 — maintains skin barrier</span></div>
+                            <div class="spec-row"><span>Fragrance</span><span>Rose water — dermatologist approved</span></div>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="di-header">
+                            <span class="di-n">08</span>
+                            <span class="di-name">PREMIUM PACKAGING</span>
+                            <span class="di-tag">Luxury Matte</span>
+                        </div>
+                        <div class="di-specs">
+                            <div class="spec-row"><span>Finish</span><span>Soft-touch matte lamination</span></div>
+                            <div class="spec-row"><span>Dimensions</span><span>15 × 10 × 4 cm</span></div>
+                            <div class="spec-row"><span>Material</span><span>Rigid recycled kraft board</span></div>
+                            <div class="spec-row"><span>Seal</span><span>Magnetic closure + tamper band</span></div>
+                            <div class="spec-row"><span>Weight</span><span>~260g total — carry-on approved</span></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-strip marquee-rev">
+    <div class="marquee-track">
+        <span>Premium Travel Kit</span><span class="ms">✦</span><span>₹199</span><span class="ms">✦</span><span>8 Premium Items</span><span class="ms">✦</span><span>Luxury Matte Box</span><span class="ms">✦</span><span>Best Value</span><span class="ms">✦</span>
+        <span>Premium Travel Kit</span><span class="ms">✦</span><span>₹199</span><span class="ms">✦</span><span>8 Premium Items</span><span class="ms">✦</span><span>Luxury Matte Box</span><span class="ms">✦</span><span>Best Value</span><span class="ms">✦</span>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════ KIT 03: WOMEN'S -->
+<div class="kit-wrapper" id="wrap-women">
+    <div class="kit-sticky">
+        <div class="kit-zoom-card kit-women-card" id="card-women">
+            <video class="kit-bg-video" muted loop playsinline preload="none">
+                <source src="assets/womens-video.mp4" type="video/mp4">
+            </video>
+            <div class="kit-card-left">
+                <div class="kit-ghost-num">03</div>
+                <div class="kit-card-content">
+                    <p class="kit-index" style="color:#e891b8">Kit 03 of 04</p>
+                    <h2 class="kit-name">Women's<br>Hygiene Kit</h2>
+                    <div class="kit-price-display">
+                        <span class="price-currency" style="color:#e891b8">₹</span>
+                        <span class="price-num" style="color:#e891b8">179</span>
+                    </div>
+                    <div class="kit-imgs">
+                        <img src="assets/womens-start.jpg" alt="Women's Kit" class="kit-img" loading="lazy">
+                        <img src="assets/womens-end.jpg" alt="Women's Kit Contents" class="kit-img" loading="lazy">
+                    </div>
+                    <p class="kit-tagline">"Crafted for her journey."</p>
+                    <p class="kit-para">Eight essentials including sanitary care, aloe-enriched hygiene products and a sealed disposal bag. Designed by women's needs, for women's confidence.</p>
+                    <div class="kit-spec-summary">
+                        <div class="ks"><span>Items</span><strong>8</strong></div>
+                        <div class="ks"><span>Pack Size</span><strong>14×9×4 cm</strong></div>
+                        <div class="ks"><span>Includes</span><strong>Sanitary Care</strong></div>
+                        <div class="ks"><span>Special</span><strong>Disposal Bag</strong></div>
+                    </div>
+                    <a href="https://wa.me/919863291184?text=Hi!%20I%20want%20to%20order%20the%20Women's%20Hygiene%20Kit%20at%20%E2%82%B9179" target="_blank" class="kit-wa-btn" style="border-color:#e891b8;color:#e891b8">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        Order on WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="kit-card-right">
+                <div class="kit-showcase">
+                    <img src="assets/womens-end.jpg" alt="Women's Kit Contents" loading="lazy">
+                    <div class="kit-showcase-overlay"></div>
+                </div>
+                <div class="items-scroll-area">
+
+                    <div class="detail-item">
+                        <div class="di-header">
+                            <span class="di-n" style="color:#e891b8">01</span>
+                            <span class="di-name">SANITARY PADS</span>
+                            <span class="di-tag" style="border-color:#e891b820;color:#e891b8">Travel Size</span>
+                        </div>
+                        <div class="di-specs">
+                            <div class="spec-row"><span>Absorbency</span><span>Up to 20ml — medium-heavy flow</span></div>
+                            <div class="spec-row"><span>Core</span><span>Superabsorbent polymer (SAP)</span></div>
+                            <div class="spec-row"><span>Surface</span><span>Soft cotton-feel top layer</span></div>
+                            <div class="spec-row"><span>Backing</span><span>Leak-proof PE film</span></div>
+                            <div class="spec-row"><span>Certification</span><span>Dermatologically tested</span></div>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="di-header">
+                            <span class="di-n" style="color:#e891b8">02</span>
+                            <span class="di-name">TISSUE</span>
+                            <span class="di-tag" style="border-color:#e891b820;color:#e891b8">10 Sheets</span>
+                        </div>
+                        <div class="di-specs">
+                            <div class="spec-row"><span>Material</span><span>Biodegradable virgin pulp</span></div>
+                            <div class="spec-row"><span>Weight</span><span>25 GSM — gentle on skin</span></div>
+                            <div class="spec-row"><span>Layers</span><span>2-ply soft construction</span></div>
+                            <div class="spec-row"><span>Fragrance</span><span>Hypoallergenic, unscented</span></div>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="di-header">
+                            <span class="di-n" style="color:#e891b8">03</span>
+                            <span class="di-name">SHOE COVER</span>
+                            <span class="di-tag" style="border-color:#e891b820;color:#e891b8">Waterproof</span>
+                        </div>
+                        <div class="di-specs">
+                            <div class="spec-row"><span>Material</span><span>PEVA waterproof film</span></div>
+                            <div class="spec-row"><span>Size</span><span>Universal — up to EU 42</span></div>
+                            <div class="spec-row"><span>Resistance</span><span>Water & dust proof</span></div>
+                            <div class="spec-row"><span>Type</span><span>Disposable, slip-on</span></div>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="di-header">
+                            <span class="di-n" style="color:#e891b8">04</span>
+                            <span class="di-name">HAND SANITIZER</span>
+                            <span class="di-tag" style="border-color:#e891b820;color:#e891b8">15ml</span>
+                        </div>
+                        <div class="di-specs">
+                            <div class="spec-row"><span>Active</span><span>70% IPA — WHO formula</span></div>
+                            <div class="spec-row"><span>Enriched</span><span>Aloe vera + Vitamin E</span></div>
+                            <div class="spec-row"><span>Kill Rate</span><span>99.9% pathogens</span></div>
+                            <div class="spec-row"><span>Formula</span><span>Extra gentle — non-drying</span></div>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="di-header">
+                            <span class="di-n" style="color:#e891b8">05</span>
+                            <span class="di-name">TOILET SPRAY</span>
+                            <span class="di-tag" style="border-color:#e891b820;color:#e891b8">15ml</span>
+                        </div>
+                        <div class="di-specs">
+                            <div class="spec-row"><span>Active</span><span>Benzalkonium Chloride 0.1%</span></div>
+                            <div class="spec-row"><span>Volume</span><span>15ml — ~80 sprays</span></div>
+                            <div class="spec-row"><span>pH</span><span>7.2 — neutral balance</span></div>
+                            <div class="spec-row"><span>Scent</span><span>Rose & jasmine, dissipates in 10s</span></div>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="di-header">
+                            <span class="di-n" style="color:#e891b8">06</span>
+                            <span class="di-name">DISPOSAL SEAT COVER</span>
+                            <span class="di-tag" style="border-color:#e891b820;color:#e891b8">Biodegradable</span>
+                        </div>
+                        <div class="di-specs">
+                            <div class="spec-row"><span>Material</span><span>100% biodegradable paper</span></div>
+                            <div class="spec-row"><span>Dimensions</span><span>43 × 36 cm — universal fit</span></div>
+                            <div class="spec-row"><span>Flush</span><span>Dissolves fully within 30s</span></div>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="di-header">
+                            <span class="di-n" style="color:#e891b8">07</span>
+                            <span class="di-name">PAPER SOAP</span>
+                            <span class="di-tag" style="border-color:#e891b820;color:#e891b8">10 Sheets</span>
+                        </div>
+                        <div class="di-specs">
+                            <div class="spec-row"><span>Formula</span><span>Moisturising glycerin base</span></div>
+                            <div class="spec-row"><span>pH</span><span>5.5 — maintains skin barrier</span></div>
+                            <div class="spec-row"><span>Enriched</span><span>Rose water + vitamin complex</span></div>
+                            <div class="spec-row"><span>Count</span><span>10 dissolvable sheets</span></div>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="di-header">
+                            <span class="di-n" style="color:#e891b8">08</span>
+                            <span class="di-name">DISPOSAL BAG</span>
+                            <span class="di-tag" style="border-color:#e891b820;color:#e891b8">Sealed Privacy</span>
+                        </div>
+                        <div class="di-specs">
+                            <div class="spec-row"><span>Material</span><span>Opaque black HDPE film</span></div>
+                            <div class="spec-row"><span>Seal</span><span>Double-lock zipper closure</span></div>
+                            <div class="spec-row"><span>Size</span><span>20 × 25 cm — generous capacity</span></div>
+                            <div class="spec-row"><span>Odour</span><span>Activated carbon odour barrier</span></div>
+                            <div class="spec-row"><span>Privacy</span><span>100% opaque — fully discreet</span></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+    <div class="marquee-track">
+        <span>Women's Hygiene Kit</span><span class="ms">✦</span><span>₹179</span><span class="ms">✦</span><span>8 Essentials</span><span class="ms">✦</span><span>Sanitary Care</span><span class="ms">✦</span><span>Disposal Bag</span><span class="ms">✦</span>
+        <span>Women's Hygiene Kit</span><span class="ms">✦</span><span>₹179</span><span class="ms">✦</span><span>8 Essentials</span><span class="ms">✦</span><span>Sanitary Care</span><span class="ms">✦</span><span>Disposal Bag</span><span class="ms">✦</span>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════ KIT 04: KIDS -->
+<div class="kit-wrapper" id="wrap-kids">
+    <div class="kit-sticky">
+        <div class="kit-zoom-card kit-kids-card" id="card-kids">
+            <video class="kit-bg-video" muted loop playsinline preload="none">
+                <source src="assets/kids-video.mp4" type="video/mp4">
+            </video>
+            <div class="kit-card-left">
+                <div class="kit-ghost-num">04</div>
+                <div class="kit-card-content">
+                    <p class="kit-index" style="color:#6dc87a">Kit 04 of 04</p>
+                    <h2 class="kit-name">Kids Travel<br>Hygiene Kit</h2>
+                    <div class="kit-price-display">
+                        <span class="price-currency" style="color:#6dc87a">₹</span>
+                        <span class="price-num" style="color:#6dc87a">149</span>
+                    </div>
+                    <div class="kit-imgs">
+                        <img src="assets/kids-start.jpg" alt="Kids Kit" class="kit-img" loading="lazy">
+                        <img src="assets/kids-end.jpg" alt="Kids Kit Contents" class="kit-img" loading="lazy">
+                    </div>
+                    <p class="kit-tagline">"Safe, gentle, and a little fun."</p>
+                    <p class="kit-para">Seven kid-friendly items with mild alcohol-free formulas, playful packaging and the little extras that make every journey an adventure.</p>
+                    <div class="kit-spec-summary">
+                        <div class="ks"><span>Items</span><strong>7</strong></div>
+                        <div class="ks"><span>Formula</span><strong>Alcohol-Free</strong></div>
+                        <div class="ks"><span>Age</span><strong>3+ Years</strong></div>
+                        <div class="ks"><span>Extras</span><strong>Stickers + Snack</strong></div>
+                    </div>
+                    <a href="https://wa.me/919863291184?text=Hi!%20I%20want%20to%20order%20the%20Kids%20Travel%20Hygiene%20Kit%20at%20%E2%82%B9149" target="_blank" class="kit-wa-btn" style="border-color:#6dc87a;color:#6dc87a">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        Order on WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="kit-card-right">
+                <div class="kit-showcase">
+                    <img src="assets/kids-end.jpg" alt="Kids Kit Contents" loading="lazy">
+                    <div class="kit-showcase-overlay"></div>
+                </div>
+                <div class="items-scroll-area">
+
+                    <div class="detail-item">
+                        <div class="di-header">
+                            <span class="di-n" style="color:#6dc87a">01</span>
+                            <span class="di-name">MILD SANITIZER</span>
+                            <span class="di-tag" style="border-color:#6dc87a20;color:#6dc87a">Alcohol-Free</span>
+                        </div>
+                        <div class="di-specs">
+                            <div class="spec-row"><span>Active</span><span>Benzalkonium Chloride 0.05%</span></div>
+                            <div class="spec-row"><span>Formula</span><span>Alcohol-free — safe for ages 3+</span></div>
+                            <div class="spec-row"><span>Kill Rate</span><span>99.9% common bacteria</span></div>
+                            <div class="spec-row"><span>Enriched</span><span>Chamomile + Aloe vera</span></div>
+                            <div class="spec-row"><span>Tested</span><span>Paediatrician approved</span></div>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="di-header">
+                            <span class="di-n" style="color:#6dc87a">02</span>
+                            <span class="di-name">TOILET SPRAY</span>
+                            <span class="di-tag" style="border-color:#6dc87a20;color:#6dc87a">Gentle</span>
+                        </div>
+                        <div class="di-specs">
+                            <div class="spec-row"><span>Active</span><span>Mild antimicrobial formula</span></div>
+                            <div class="spec-row"><span>Volume</span><span>15ml — ~80 sprays</span></div>
+                            <div class="spec-row"><span>Scent</span><span>Bubble-gum — kids love it</span></div>
+                            <div class="spec-row"><span>pH</span><span>7.0 — safe for sensitive skin</span></div>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="di-header">
+                            <span class="di-n" style="color:#6dc87a">03</span>
+                            <span class="di-name">WET WIPES</span>
+                            <span class="di-tag" style="border-color:#6dc87a20;color:#6dc87a">Hypoallergenic</span>
+                        </div>
+                        <div class="di-specs">
+                            <div class="spec-row"><span>Material</span><span>Ultra-soft spunlace fibre</span></div>
+                            <div class="spec-row"><span>Formula</span><span>Water-based, 0% alcohol</span></div>
+                            <div class="spec-row"><span>pH</span><span>5.5 — matches children's skin</span></div>
+                            <div class="spec-row"><span>Tested</span><span>Hypoallergenic, dermatologist approved</span></div>
+                            <div class="spec-row"><span>Fragrance</span><span>Unscented — no irritation</span></div>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="di-header">
+                            <span class="di-n" style="color:#6dc87a">04</span>
+                            <span class="di-name">TISSUE</span>
+                            <span class="di-tag" style="border-color:#6dc87a20;color:#6dc87a">Extra Soft</span>
+                        </div>
+                        <div class="di-specs">
+                            <div class="spec-row"><span>Material</span><span>Premium virgin pulp — extra soft</span></div>
+                            <div class="spec-row"><span>Weight</span><span>28 GSM — gentle on young skin</span></div>
+                            <div class="spec-row"><span>Layers</span><span>2-ply cushioned</span></div>
+                            <div class="spec-row"><span>Fragrance</span><span>Hypoallergenic, unscented</span></div>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="di-header">
+                            <span class="di-n" style="color:#6dc87a">05</span>
+                            <span class="di-name">PAPER SOAP</span>
+                            <span class="di-tag" style="border-color:#6dc87a20;color:#6dc87a">Fruity Scent</span>
+                        </div>
+                        <div class="di-specs">
+                            <div class="spec-row"><span>Formula</span><span>Gentle glycerin — tear-free</span></div>
+                            <div class="spec-row"><span>Scent</span><span>Strawberry — kids wash happily</span></div>
+                            <div class="spec-row"><span>pH</span><span>5.5 — children's skin safe</span></div>
+                            <div class="spec-row"><span>Count</span><span>10 fun dissolvable sheets</span></div>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="di-header">
+                            <span class="di-n" style="color:#6dc87a">06</span>
+                            <span class="di-name">FUN PACKAGING</span>
+                            <span class="di-tag" style="border-color:#6dc87a20;color:#6dc87a">Character Design</span>
+                        </div>
+                        <div class="di-specs">
+                            <div class="spec-row"><span>Design</span><span>Illustrated character artwork</span></div>
+                            <div class="spec-row"><span>Material</span><span>Recycled kraft board</span></div>
+                            <div class="spec-row"><span>Dimensions</span><span>12 × 8 × 3 cm</span></div>
+                            <div class="spec-row"><span>Finish</span><span>Child-safe soy-based inks</span></div>
+                        </div>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="di-header">
+                            <span class="di-n" style="color:#6dc87a">07</span>
+                            <span class="di-name">EXTRAS</span>
+                            <span class="di-tag" style="border-color:#6dc87a20;color:#6dc87a">Surprise Inside</span>
+                        </div>
+                        <div class="di-specs">
+                            <div class="spec-row"><span>Stickers</span><span>5× premium die-cut stickers</span></div>
+                            <div class="spec-row"><span>Snack</span><span>1× individually sealed healthy snack</span></div>
+                            <div class="spec-row"><span>Purpose</span><span>Makes hygiene exciting for kids</span></div>
+                            <div class="spec-row"><span>Safety</span><span>No choking hazard — ages 3+</span></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-strip marquee-rev">
+    <div class="marquee-track">
+        <span>Kids Travel Hygiene Kit</span><span class="ms">✦</span><span>₹149</span><span class="ms">✦</span><span>Alcohol-Free Formula</span><span class="ms">✦</span><span>Ages 3+</span><span class="ms">✦</span><span>Fun Packaging</span><span class="ms">✦</span>
+        <span>Kids Travel Hygiene Kit</span><span class="ms">✦</span><span>₹149</span><span class="ms">✦</span><span>Alcohol-Free Formula</span><span class="ms">✦</span><span>Ages 3+</span><span class="ms">✦</span><span>Fun Packaging</span><span class="ms">✦</span>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════ FEATURES — HORIZONTAL SCROLL -->
+<section id="features">
+    <div class="feat-sticky">
+        <div class="feat-side-text">
+            <p class="label-tag">Why Choose Us</p>
+            <h2 class="feat-side-h2">Built<br>different.<br><em class="italic-gold">By design.</em></h2>
+        </div>
+        <div class="feat-h-track">
+
+            <div class="feat-slide">
+                <div class="feat-slide-img"><img loading="lazy" src="assets/Verified_sourcing_from_IndiaMART…_202605051043.jpeg" alt="Verified Sourcing"></div>
+                <div class="feat-slide-info">
+                    <span class="fs-num">01</span>
+                    <h3>Verified Sourcing</h3>
+                    <p>Every component sourced from IndiaMART, Flipkart & TradeIndia. No shortcuts.</p>
+                </div>
+            </div>
+
+            <div class="feat-slide">
+                <div class="feat-slide-img"><img loading="lazy" src="assets/Travel-Engineered_compact_durabl…_202605051043.jpeg" alt="Travel-Engineered"></div>
+                <div class="feat-slide-info">
+                    <span class="fs-num">02</span>
+                    <h3>Travel-Engineered</h3>
+                    <p>Compact enough for carry-on, durable enough for any journey.</p>
+                </div>
+            </div>
+
+            <div class="feat-slide">
+                <div class="feat-slide-img"><img loading="lazy" src="assets/Luxury_hygiene_starting_₹99_202605051043.jpeg" alt="Premium at ₹99"></div>
+                <div class="feat-slide-info">
+                    <span class="fs-num">03</span>
+                    <h3>Premium at ₹99</h3>
+                    <p>Luxury hygiene starting at ₹99. Zero compromise on completeness.</p>
+                </div>
+            </div>
+
+            <div class="feat-slide">
+                <div class="feat-slide-img"><img loading="lazy" src="assets/Instant_order_one_tap_message_202605051043.jpeg" alt="Instant Order"></div>
+                <div class="feat-slide-info">
+                    <span class="fs-num">04</span>
+                    <h3>Instant Order</h3>
+                    <p>One tap. One message. Your kit on its way. No apps, no accounts.</p>
+                </div>
+            </div>
+
+            <div class="feat-slide">
+                <div class="feat-slide-img"><img loading="lazy" src="assets/Kits_for_every_traveller_202605051043.jpeg" alt="4 Kits Every Need"></div>
+                <div class="feat-slide-info">
+                    <span class="fs-num">05</span>
+                    <h3>4 Kits, Every Need</h3>
+                    <p>Standard, Premium, Women's, Kids. A kit for every traveller.</p>
+                </div>
+            </div>
+
+            <div class="feat-slide">
+                <div class="feat-slide-img"><img loading="lazy" src="assets/Corporate_ready_bulk_orders_202605051043.jpeg" alt="Corporate Ready"></div>
+                <div class="feat-slide-info">
+                    <span class="fs-num">06</span>
+                    <h3>Corporate Ready</h3>
+                    <p>Bulk orders from ₹89/unit. Hotels, airlines, hospitals — we scale with you.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════ STATS -->
+<div class="stats-bar">
+    <div class="stat"><span class="snum" data-t="4">0</span><span class="slabel">Premium Kits</span></div>
+    <div class="sdiv">✦</div>
+    <div class="stat"><span class="snum" data-t="99">0</span><span class="slabel">Starting ₹</span></div>
+    <div class="sdiv">✦</div>
+    <div class="stat"><span class="snum" data-t="35">0</span><span class="slabel">Items Across Kits</span></div>
+    <div class="sdiv">✦</div>
+    <div class="stat"><span class="snum" data-t="100">0</span><span class="slabel">% Verified Sources</span></div>
+</div>
+
+<!-- ══════════════════════════════════════════ COMPARE -->
+<section id="compare">
+    <div class="cmp-header">
+        <p class="label-tag">Side by Side</p>
+        <h2>Compare All Kits</h2>
+    </div>
+    <div class="cmp-scroll">
+        <table class="cmp-table">
+            <thead>
+                <tr>
+                    <th class="cmp-feat-col">What's inside</th>
+                    <th><div class="th-name">Standard<br><span>₹99</span></div></th>
+                    <th class="th-gold"><div class="th-name gold">Premium<br><span>₹199</span></div></th>
+                    <th><div class="th-name">Women's<br><span>₹179</span></div></th>
+                    <th><div class="th-name">Kids<br><span>₹149</span></div></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Tissue</td><td>2-ply, 10 sheets</td><td class="g">3-ply, 10 sheets</td><td>2-ply, 10 sheets</td><td>Extra soft, 10sh</td></tr>
+                <tr><td>Hand Sanitizer</td><td>15ml, 70% IPA</td><td class="g">30ml, 70% IPA</td><td>15ml, Aloe+Vit E</td><td class="dim">—</td></tr>
+                <tr><td>Mild Sanitizer</td><td class="dim">—</td><td class="g dim">—</td><td class="dim">—</td><td>Alcohol-free</td></tr>
+                <tr><td>Toilet Spray</td><td>15ml</td><td class="g">20ml Premium</td><td>15ml Rose</td><td>15ml Gentle</td></tr>
+                <tr><td>Disposal Seat Cover</td><td>✓</td><td class="g">✓ Oversized</td><td>✓</td><td class="dim">—</td></tr>
+                <tr><td>Paper Soap</td><td>10 sheets</td><td class="g">10 sheets Premium</td><td>10 sheets Rose</td><td>10 sheets Fruity</td></tr>
+                <tr><td>Shoe Cover</td><td>✓ PEVA</td><td class="g dim">—</td><td>✓ PEVA</td><td class="dim">—</td></tr>
+                <tr><td>Wet Wipes</td><td class="dim">—</td><td class="g">✓ Antibacterial</td><td class="dim">—</td><td>✓ Hypoallergenic</td></tr>
+                <tr><td>Gloves</td><td class="dim">—</td><td class="g">✓ Medical Grade</td><td class="dim">—</td><td class="dim">—</td></tr>
+                <tr><td>Sanitary Pads</td><td class="dim">—</td><td class="g dim">—</td><td>✓ SAP Core</td><td class="dim">—</td></tr>
+                <tr><td>Disposal Bag</td><td class="dim">—</td><td class="g dim">—</td><td>✓ Odour Lock</td><td class="dim">—</td></tr>
+                <tr><td>Fun Extras</td><td class="dim">—</td><td class="g dim">—</td><td class="dim">—</td><td>✓ Stickers+Snack</td></tr>
+                <tr><td>Packaging</td><td>Eco kraft pouch</td><td class="g">Luxury matte box</td><td>Eco kraft pouch</td><td>Character design</td></tr>
+                <tr><td>Weight</td><td>~180g</td><td class="g">~260g</td><td>~220g</td><td>~160g</td></tr>
+                <tr class="cmp-order-row">
+                    <td></td>
+                    <td><a href="https://wa.me/919863291184?text=Standard%20Kit%20%E2%82%B999" target="_blank" class="cmp-btn">Order</a></td>
+                    <td class="g"><a href="https://wa.me/919863291184?text=Premium%20Kit%20%E2%82%B9199" target="_blank" class="cmp-btn gold-btn">Order</a></td>
+                    <td><a href="https://wa.me/919863291184?text=Women's%20Kit%20%E2%82%B9179" target="_blank" class="cmp-btn">Order</a></td>
+                    <td><a href="https://wa.me/919863291184?text=Kids%20Kit%20%E2%82%B9149" target="_blank" class="cmp-btn">Order</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════ CORPORATE -->
+<section id="corporate">
+    <div class="corp-inner">
+        <div class="corp-visual">
+            <div class="corp-rings">
+                <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="250" cy="250" r="240" stroke="#c9a050" stroke-width="0.8" opacity="0.18"/>
+                    <circle cx="250" cy="250" r="190" stroke="#c9a050" stroke-width="0.6" opacity="0.12"/>
+                    <circle cx="250" cy="250" r="140" stroke="#c9a050" stroke-width="0.5" opacity="0.08"/>
+                </svg>
+            </div>
+            <div class="corp-float-icons">
+                <div class="cfi cfi-1"><svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="17" stroke="#c9a050" stroke-width="1.2" opacity=".55"/><path d="M11 14h14l-2 10H13L11 14z" stroke="#c9a050" stroke-width="1.2" fill="none" opacity=".7"/><path d="M15 14l1-4h4l1 4" stroke="#c9a050" stroke-width="1.2" fill="none" opacity=".7"/></svg></div>
+                <div class="cfi cfi-2"><svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="17" stroke="#c9a050" stroke-width="1.2" opacity=".55"/><circle cx="18" cy="14" r="5" stroke="#c9a050" stroke-width="1.2" fill="none" opacity=".7"/><path d="M10 26c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="#c9a050" stroke-width="1.2" fill="none" opacity=".7"/></svg></div>
+                <div class="cfi cfi-3"><svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="17" stroke="#c9a050" stroke-width="1.2" opacity=".55"/><path d="M10 22l8-10 8 10H10z" stroke="#c9a050" stroke-width="1.2" fill="none" opacity=".7"/><circle cx="18" cy="24" r="2" fill="#c9a050" opacity=".5"/></svg></div>
+                <div class="cfi cfi-4"><svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="17" stroke="#c9a050" stroke-width="1.2" opacity=".55"/><rect x="9" y="14" width="18" height="12" rx="2" stroke="#c9a050" stroke-width="1.2" fill="none" opacity=".7"/><path d="M14 14v-3a4 4 0 018 0v3" stroke="#c9a050" stroke-width="1.2" fill="none" opacity=".7"/></svg></div>
+            </div>
+            <canvas id="corp-canvas"></canvas>
+        </div>
+        <div class="corp-text">
+            <p class="label-tag">Bulk & Enterprise</p>
+            <h2 class="corp-h2">Corporate<br>/ Bulk Kit</h2>
+            <div class="corp-divider"></div>
+            <div class="corp-range">
+                <span>₹89</span><div class="cr-dash"></div><span>₹169</span>
+                <small>per unit</small>
+            </div>
+            <p class="corp-desc">Standard and Premium Travel Kits in bulk with custom branding and discounted pricing. Built for airlines, hotels, hospitals and corporate gifting programmes across India.</p>
+            <div class="corp-feats">
+                <div class="cf"><span class="cf-check">✓</span> Custom branding</div>
+                <div class="cf"><span class="cf-check">✓</span> Bulk discounted pricing</div>
+                <div class="cf"><span class="cf-check">✓</span> Flexible quantities</div>
+                <div class="cf"><span class="cf-check">✓</span> Dedicated account support</div>
+                <div class="cf"><span class="cf-check">✓</span> Fast pan-India delivery</div>
+                <div class="cf"><span class="cf-check">✓</span> Both Standard & Premium</div>
+            </div>
+            <a href="https://wa.me/919863291184?text=Hi!%20I'm%20interested%20in%20a%20Corporate%20%2F%20Bulk%20order.%20Please%20share%20pricing%20and%20MOQ." target="_blank" class="corp-btn">Request a Quote on WhatsApp →</a>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════ TESTIMONIALS -->
+<section id="testimonials">
+    <canvas id="test-drop-canvas"></canvas>
+    <div class="test-header">
+        <p class="label-tag">What People Say</p>
+        <h2>Travellers love<br>Hygiene Matters.</h2>
+    </div>
+    <div class="test-grid">
+        <div class="test-card"><div class="ts">★★★★★</div><p>"Got the Premium kit before my Dubai flight. Packaging so neat, everything fit in my carry-on. Never travelling without it."</p><div class="ta"><div class="tav">RS</div><div><strong>Riya S.</strong><span>Frequent Flyer, Mumbai</span></div></div></div>
+        <div class="test-card"><div class="ts">★★★★★</div><p>"Ordered the Women's kit for my daughter's trip. The disposal bag and sanitary pads — such a thoughtful inclusion. Ordered 3 more the next day."</p><div class="ta"><div class="tav">MP</div><div><strong>Meena P.</strong><span>Parent, Bangalore</span></div></div></div>
+        <div class="test-card"><div class="ts">★★★★☆</div><p>"Ordered 200 Standard kits for our hotel guests. Great value, fast, and the custom branding option was exactly what we needed."</p><div class="ta"><div class="tav">AK</div><div><strong>Arjun K.</strong><span>Hotel Manager, Delhi</span></div></div></div>
+        <div class="test-card"><div class="ts">★★★★★</div><p>"Kids kit on a 12hr train ride with my 6-year-old. Fun packaging kept him excited and the mild sanitizer was perfect. 10/10."</p><div class="ta"><div class="tav">VT</div><div><strong>Vikram T.</strong><span>Father of one, Chennai</span></div></div></div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════ CTA -->
+<section id="cta-final">
+    <canvas id="cta-reveal-canvas"></canvas>
+    <div class="cta-content">
+        <p class="label-tag">Ready?</p>
+        <h2 class="cta-h2">Your next journey<br>deserves better.</h2>
+        <p class="cta-sub">Four kits. One tap. Delivered to your door.</p>
+        <a href="https://wa.me/919863291184?text=Hi!%20I%20want%20to%20order%20a%20Hygiene%20Matters%20kit.%20Please%20share%20the%20options." target="_blank" class="cta-wa-btn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Order on WhatsApp
+        </a>
+        <div class="cta-kit-row">
+            <a href="https://wa.me/919863291184?text=Standard%20Kit%20%E2%82%B999" target="_blank">Standard ₹99</a>
+            <span>·</span>
+            <a href="https://wa.me/919863291184?text=Premium%20Kit%20%E2%82%B9199" target="_blank">Premium ₹199</a>
+            <span>·</span>
+            <a href="https://wa.me/919863291184?text=Women's%20Kit%20%E2%82%B9179" target="_blank">Women's ₹179</a>
+            <span>·</span>
+            <a href="https://wa.me/919863291184?text=Kids%20Kit%20%E2%82%B9149" target="_blank">Kids ₹149</a>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════ FOOTER -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="footer-logo">Hygiene<br>Matters</div>
+                <p>Premium travel hygiene kits<br>crafted for every journey.</p>
+                <p class="footer-src">Sources: IndiaMART · Flipkart · Amazon · TradeIndia</p>
+            </div>
+            <div class="footer-col"><h5>Kits</h5>
+                <a href="https://wa.me/919863291184?text=Standard%20Travel%20Kit%20%E2%82%B999" target="_blank">Standard — ₹99</a>
+                <a href="https://wa.me/919863291184?text=Premium%20Travel%20Kit%20%E2%82%B9199" target="_blank">Premium — ₹199</a>
+                <a href="https://wa.me/919863291184?text=Women's%20Hygiene%20Kit%20%E2%82%B9179" target="_blank">Women's — ₹179</a>
+                <a href="https://wa.me/919863291184?text=Kids%20Travel%20Hygiene%20Kit%20%E2%82%B9149" target="_blank">Kids — ₹149</a>
+            </div>
+            <div class="footer-col"><h5>Bulk</h5>
+                <a href="https://wa.me/919863291184?text=Corporate%20Bulk%20Order%20Enquiry" target="_blank">Corporate / Bulk</a>
+                <a href="https://wa.me/919863291184?text=Custom%20Branding%20Enquiry" target="_blank">Custom Branding</a>
+            </div>
+            <div class="footer-col"><h5>Contact</h5>
+                <a href="https://wa.me/919863291184" target="_blank">+91 98632 91184</a>
+                <a href="https://wa.me/919863291184" target="_blank">WhatsApp Us</a>
+            </div>
+        </div>
+        <div class="footer-btm">
+            <p>© 2026 Hygiene Matters. All rights reserved. Made with care in India 🇮🇳 &nbsp;·&nbsp; 3D model: <a href="https://poly.pizza/m/AcCeVfaVOz" target="_blank" style="color:inherit;opacity:.5">"Package" by Username12 via Poly Pizza [CC-BY]</a></p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
