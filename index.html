@@ -104,47 +104,60 @@
 
 <!-- ══════════════════════════════════════════ COMPANY OVERVIEW -->
 <section id="overview">
-    <canvas id="ov-canvas"></canvas>
-    <div class="ov-inner">
-        <div class="ov-top">
-            <p class="ov-eyebrow label-tag">— Who We Are</p>
-            <h2 class="ov-headline" id="ov-scramble-title">Hygiene Matters</h2>
-            <p class="ov-sub">Born from one belief — clean travel is not a luxury. It's a right.</p>
+    <div class="ov-sticky">
+        <video class="ov-bg-video" autoplay muted loop playsinline>
+            <source src="assets/aniimatoin background for the overview part.mp4" type="video/mp4">
+        </video>
+        <div class="ov-bg-overlay"></div>
+        <!-- Decorative orbit ring behind carousel -->
+        <div class="ov-halo">
+            <div class="ov-halo-dot"></div>
         </div>
-        <div class="ov-cards">
-            <div class="ov-card" data-ov-card>
-                <div class="ov-card-glow"></div>
-                <div class="ov-card-num">2026</div>
-                <h3 class="ov-card-title">Founded in India</h3>
-                <p class="ov-card-text">Built in 2026 with a single mission — to make premium travel hygiene accessible to every Indian traveller, from solo backpackers to corporate fleets.</p>
+        <div class="ov-scene">
+            <p class="ov-tag">— Who We Are</p>
+            <div class="ov-carousel" id="ov-carousel">
+                <div class="ov-card" data-ci="0">
+                    <div class="ov-card-inner">
+                        <span class="ov-cc-eyebrow">Founded</span>
+                        <div class="ov-cc-num">2026</div>
+                        <h3 class="ov-cc-title">Born in India</h3>
+                        <p class="ov-cc-text">Built with one mission — to make premium travel hygiene accessible to every Indian traveller, from solo backpackers to corporate fleets.</p>
+                        <div class="ov-cc-line"></div>
+                        <span class="ov-cc-tag">Est. 2026 · India</span>
+                    </div>
+                </div>
+                <div class="ov-card" data-ci="1">
+                    <div class="ov-card-inner">
+                        <span class="ov-cc-eyebrow">Range</span>
+                        <div class="ov-cc-num">4</div>
+                        <h3 class="ov-cc-title">Precision Kits</h3>
+                        <p class="ov-cc-text">Standard. Premium. Women's. Kids. Every kit purpose-engineered — zero redundancy, zero compromise, maximum confidence wherever you go.</p>
+                        <div class="ov-cc-line"></div>
+                        <span class="ov-cc-tag">₹99 — ₹199</span>
+                    </div>
+                </div>
+                <div class="ov-card" data-ci="2">
+                    <div class="ov-card-inner">
+                        <span class="ov-cc-eyebrow">Quality</span>
+                        <div class="ov-cc-num">100%</div>
+                        <h3 class="ov-cc-title">Verified Sourcing</h3>
+                        <p class="ov-cc-text">Every item traced to verified suppliers on IndiaMART, Flipkart and TradeIndia. We don't cut corners — we document them.</p>
+                        <div class="ov-cc-line"></div>
+                        <span class="ov-cc-tag">Zero shortcuts</span>
+                    </div>
+                </div>
+                <div class="ov-card" data-ci="3">
+                    <div class="ov-card-inner">
+                        <span class="ov-cc-eyebrow">Value</span>
+                        <div class="ov-cc-num">₹99</div>
+                        <h3 class="ov-cc-title">Starting Price</h3>
+                        <p class="ov-cc-text">Premium hygiene shouldn't cost a fortune. We engineered our supply chain so you get luxury-grade quality at prices that make sense.</p>
+                        <div class="ov-cc-line"></div>
+                        <span class="ov-cc-tag">Luxury for all</span>
+                    </div>
+                </div>
             </div>
-            <div class="ov-card" data-ov-card>
-                <div class="ov-card-glow"></div>
-                <div class="ov-card-num">4</div>
-                <h3 class="ov-card-title">Precision Kits</h3>
-                <p class="ov-card-text">Standard. Premium. Women's. Kids. Every kit is purpose-engineered — zero redundancy, zero compromise, maximum confidence wherever you go.</p>
-            </div>
-            <div class="ov-card" data-ov-card>
-                <div class="ov-card-glow"></div>
-                <div class="ov-card-num">100%</div>
-                <h3 class="ov-card-title">Verified Sourcing</h3>
-                <p class="ov-card-text">Every single item traced to verified suppliers on IndiaMART, Flipkart and TradeIndia. We don't cut corners — we document them.</p>
-            </div>
-            <div class="ov-card" data-ov-card>
-                <div class="ov-card-glow"></div>
-                <div class="ov-card-num">₹99</div>
-                <h3 class="ov-card-title">Starting Price</h3>
-                <p class="ov-card-text">Premium hygiene shouldn't cost a fortune. We engineered our supply chain so you get luxury-grade quality at prices that make sense.</p>
-            </div>
-        </div>
-        <div class="ov-mission-wrap" data-ov-mission>
-            <div class="ov-mission-box">
-                <div class="ov-mission-ring"></div>
-                <p class="ov-mission-label">Our Mission</p>
-                <blockquote class="ov-mission-quote">"To ensure every traveller — regardless of budget — can move through the world clean, protected, and confident."</blockquote>
-                <div class="ov-mission-divider"></div>
-                <p class="ov-mission-sig">Hygiene Matters &nbsp;·&nbsp; Est. 2026 &nbsp;·&nbsp; India</p>
-            </div>
+            <div class="ov-hint">Scroll to explore</div>
         </div>
     </div>
 </section>

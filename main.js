@@ -1263,205 +1263,70 @@ window.addEventListener('resize', () => {
 });
 
 // ══════════════════════════════════════════════════════════════════════════════
-// COMPANY OVERVIEW — Orbital Ring Canvas + Tornado Cards + Text Scramble
+// COMPANY OVERVIEW — Three.js 3D Torus Ring + Scroll-driven phases
 // ══════════════════════════════════════════════════════════════════════════════
 
 (function initOverview() {
-    const canvas = document.getElementById('ov-canvas');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    let W, H, cx, cy;
-    let ovT = 0;
-    let ovParticles = [];
-    let ovRAF;
-    let ovVisible = false;
+    const ovSection = document.getElementById('overview');
+    const carousel  = document.getElementById('ov-carousel');
+    if (!ovSection || !carousel) return;
 
-    function resize() {
-        W = canvas.width  = canvas.offsetWidth  || canvas.parentElement.offsetWidth;
-        H = canvas.height = canvas.offsetHeight || canvas.parentElement.offsetHeight;
-        cx = W / 2; cy = H / 2;
-    }
-    resize();
-    new ResizeObserver(resize).observe(canvas.parentElement);
+    const ovCards = Array.from(carousel.querySelectorAll('.ov-card'));
+    const N = ovCards.length; // 4
 
-    // Orbital rings: radius, x-tilt, rotation speed, starting phase, alpha
-    const RINGS = [
-        { r: 0.38, tiltX: 0.18, speed: 0.0025,  phase: 0,   alpha: 0.70, width: 1.5 },
-        { r: 0.29, tiltX: 1.05, speed: -0.0018, phase: 1.8, alpha: 0.45, width: 1.0 },
-        { r: 0.20, tiltX: 0.62, speed: 0.0012,  phase: 3.5, alpha: 0.28, width: 0.8 },
-        { r: 0.46, tiltX: 0.42, speed: -0.0008, phase: 0.9, alpha: 0.15, width: 0.6 },
-    ];
-
-    function spawnParticle(px, py, ring) {
-        const angle = Math.random() * Math.PI * 2;
-        const speed = 0.4 + Math.random() * 1.4;
-        ovParticles.push({
-            x: px, y: py,
-            vx: Math.cos(angle) * speed,
-            vy: Math.sin(angle) * speed,
-            life: 1,
-            decay: 0.006 + Math.random() * 0.014,
-            size: 0.8 + Math.random() * 2.0,
-            alpha: ring.alpha
-        });
-    }
-
-    function drawRing(ring) {
-        const angle = ovT * ring.speed + ring.phase;
-        const cosT  = Math.cos(ring.tiltX);
-        const R = Math.min(W, H) * ring.r;
-
-        ctx.save();
-        ctx.translate(cx, cy);
-        ctx.rotate(angle);
-        ctx.scale(1, cosT);
-
-        // Ring glow
-        ctx.shadowColor = 'rgba(201,160,80,0.8)';
-        ctx.shadowBlur  = 18;
-        ctx.strokeStyle = `rgba(201,160,80,${ring.alpha})`;
-        ctx.lineWidth   = ring.width;
-        ctx.beginPath();
-        ctx.arc(0, 0, R, 0, Math.PI * 2);
-        ctx.stroke();
-        ctx.restore();
-
-        // Spawn sparks along ring edge
-        if (Math.random() < 0.25) {
-            const a = Math.random() * Math.PI * 2;
-            const px = cx + Math.cos(a + angle) * R;
-            const py = cy + Math.sin(a + angle) * R * cosT;
-            spawnParticle(px, py, ring);
+    // Initial: card 0 front, others ghost-visible
+    ovCards.forEach((card, i) => {
+        const inner = card.querySelector('.ov-card-inner');
+        if (i === 0) {
+            card.classList.add('ov-front');
+            gsap.set(inner, { scale: 1, opacity: 1 });
+        } else {
+            gsap.set(inner, { scale: 0.84, opacity: 0.10 });
         }
-    }
+    });
+    carousel.style.transform = 'rotateY(0deg)';
 
-    function loop() {
-        if (!ovVisible) { ovRAF = requestAnimationFrame(loop); return; }
+    let lastIdx = 0;
 
-        ctx.clearRect(0, 0, W, H);
+    ScrollTrigger.create({
+        trigger : '#overview',
+        start   : 'top top',
+        end     : 'bottom bottom',
+        scrub   : 1.8,          // smooth lag — feels silky
+        onUpdate: self => {
+            const ry = -self.progress * 360;
+            carousel.style.transform = `rotateY(${ry}deg)`;
 
-        // Deep dark radial gradient bg
-        const gr = ctx.createRadialGradient(cx, cy, 0, cx, cy, Math.max(W, H) * 0.75);
-        gr.addColorStop(0,   'rgba(22,10,42,0.96)');
-        gr.addColorStop(0.5, 'rgba(10,5,22,0.98)');
-        gr.addColorStop(1,   'rgba(4,3,10,1)');
-        ctx.fillStyle = gr;
-        ctx.fillRect(0, 0, W, H);
+            // Correct front-card index:
+            // card[k] faces viewer when carousel is at rotateY(-k*90)
+            // so frontIdx = round(progress * N) % N
+            const idx = Math.round(self.progress * N) % N;
+            if (idx === lastIdx) return;
+            lastIdx = idx;
 
-        // Draw rings
-        RINGS.forEach(r => drawRing(r));
+            ovCards.forEach((card, i) => {
+                const inner    = card.querySelector('.ov-card-inner');
+                const isFront  = i === idx;
+                const wasFront = card.classList.contains('ov-front');
 
-        // Draw + update particles
-        ovParticles = ovParticles.filter(p => p.life > 0);
-        if (ovParticles.length < 600) {
-            ovParticles.forEach(p => {
-                p.x  += p.vx;
-                p.y  += p.vy;
-                p.vx *= 0.97;
-                p.vy *= 0.97;
-                p.life -= p.decay;
-                ctx.save();
-                ctx.globalAlpha = Math.max(0, p.life * p.alpha);
-                ctx.shadowColor = '#c9a050';
-                ctx.shadowBlur  = 8;
-                ctx.fillStyle   = '#c9a050';
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                ctx.fill();
-                ctx.restore();
+                if (isFront && !wasFront) {
+                    card.classList.add('ov-front');
+                    gsap.killTweensOf(inner);
+                    gsap.fromTo(inner,
+                        { scale: 0.6, opacity: 0 },
+                        { scale: 1, opacity: 1,
+                          duration: 0.7, ease: 'back.out(1.4)', overwrite: true }
+                    );
+                } else if (!isFront && wasFront) {
+                    card.classList.remove('ov-front');
+                    gsap.killTweensOf(inner);
+                    gsap.to(inner, {
+                        scale: 0.84, opacity: 0.10,
+                        duration: 0.4, ease: 'power2.in', overwrite: true
+                    });
+                }
             });
         }
-
-        ovT++;
-        ovRAF = requestAnimationFrame(loop);
-    }
-
-    // Only run when visible
-    new IntersectionObserver(entries => {
-        ovVisible = entries[0].isIntersecting;
-        if (ovVisible && !ovRAF) loop();
-    }, { threshold: 0.05 }).observe(canvas.parentElement);
-
-    loop();
-
-
-    // ── TEXT SCRAMBLE ─────────────────────────────────────────────────────────
-    function scramble(el, final, duration) {
-        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*';
-        let start = null;
-        function frame(ts) {
-            if (!start) start = ts;
-            const p = Math.min((ts - start) / duration, 1);
-            let out = '';
-            for (let i = 0; i < final.length; i++) {
-                if (final[i] === ' ') { out += ' '; continue; }
-                out += i < p * final.length
-                    ? final[i]
-                    : chars[Math.floor(Math.random() * chars.length)];
-            }
-            el.textContent = out;
-            if (p < 1) requestAnimationFrame(frame);
-            else el.textContent = final;
-        }
-        requestAnimationFrame(frame);
-    }
-
-    // Trigger scramble when headline enters viewport
-    const headline = document.getElementById('ov-scramble-title');
-    if (headline) {
-        let scrambled = false;
-        new IntersectionObserver(entries => {
-            if (entries[0].isIntersecting && !scrambled) {
-                scrambled = true;
-                scramble(headline, 'Hygiene Matters', 1400);
-            }
-        }, { threshold: 0.5 }).observe(headline);
-    }
-
-
-    // ── GSAP TORNADO CARD ANIMATIONS ─────────────────────────────────────────
-    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-
-        // Eyebrow + subtitle fade in
-        gsap.from('.ov-eyebrow, .ov-sub', {
-            scrollTrigger: { trigger: '#overview', start: 'top 75%' },
-            opacity: 0, y: 30, stagger: 0.15, duration: 0.9, ease: 'power3.out'
-        });
-
-        // Headline: scale up from 0 with slight blur
-        gsap.fromTo('.ov-headline',
-            { opacity: 0, scale: 0.7, filter: 'blur(12px)' },
-            {
-                scrollTrigger: { trigger: '#overview', start: 'top 72%' },
-                opacity: 1, scale: 1, filter: 'blur(0px)',
-                duration: 1.1, ease: 'expo.out'
-            }
-        );
-
-        // Cards: tornado spin-in — each card spins 360° + scales from 0
-        gsap.fromTo('[data-ov-card]',
-            { opacity: 0, scale: 0.2, rotation: -270, y: 80 },
-            {
-                scrollTrigger: { trigger: '.ov-cards', start: 'top 80%' },
-                opacity: 1, scale: 1, rotation: 0, y: 0,
-                stagger: {
-                    amount: 0.5,
-                    ease: 'power2.out'
-                },
-                duration: 0.9,
-                ease: 'back.out(1.4)'
-            }
-        );
-
-        // Mission box: rise up with blur clear
-        gsap.fromTo('[data-ov-mission]',
-            { opacity: 0, y: 60, filter: 'blur(8px)' },
-            {
-                scrollTrigger: { trigger: '[data-ov-mission]', start: 'top 85%' },
-                opacity: 1, y: 0, filter: 'blur(0px)',
-                duration: 1.2, ease: 'power3.out'
-            }
-        );
-    }
+    });
 
 })();
